@@ -23,7 +23,7 @@ def has_count(box, count):
 
 
 def diff_one(ids):
-    id_list = list(map(list, set(ids)))
+    id_list = list(map(list, ids))
     for box_a in id_list:
         for box_b in id_list:
             if box_a != box_b:
@@ -34,12 +34,12 @@ def diff_one(ids):
 
 # Create an (inverted) mask of the diff. 0 means match, 1 means drop
 def diff_mask(box_a, box_b):
-    return [0 if x == y else 1 for x, y in list(zip(box_a, box_b))]
+    return [0 if x == y else 1 for x, y in zip(box_a, box_b)]
 
 
 # get the match according to mask.
 def unmask(box, mask):
-    return "".join(["" if m == 1 else v for m, v in list(zip(mask, box))])
+    return "".join(v for m, v in zip(mask, box) if m != v)
 
 
 if __name__ == "__main__":
@@ -49,4 +49,15 @@ if __name__ == "__main__":
     start = timer()
     print("result day 02 part 1: ", list_checksum(params), " in ", get_time(start))
     start = timer()
-    print("result day 02 part 2: ", diff_one(params), " in ", get_time(start))
+    print("result day 02 part 2: ", diff_one(set(params)), " in ", get_time(start))
+
+    # Speed measurement, python is way faster working on sets than on lists.
+    #for i in range(10):
+    #    start = timer()
+    #    print("[", i, "] result day 02 part 2: ", diff_one(params), " in ", get_time(start))
+    #
+    #paramset = set(params)
+    #for i in range(10):
+    #    start = timer()
+    #    print("[", i, "] result day 02 part 2 with set: ", diff_one(paramset), " in ", get_time(start))
+    #

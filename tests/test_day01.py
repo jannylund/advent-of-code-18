@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from day01.day01 import sum_array, twice
+from day01 import sum_array, twice
 
 
 class TestGame(TestCase):

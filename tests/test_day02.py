@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from day02.day02 import checksum, list_checksum, diff_one
+from day02 import checksum, list_checksum, diff_one
 
 
 class TestGame(TestCase):

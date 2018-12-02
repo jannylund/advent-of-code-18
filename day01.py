@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+from timeit import default_timer as timer
+from utils.time import get_time
 
 
 # Convert params to int
@@ -17,6 +19,7 @@ def twice(parameters):
     pos = 0
     result = 0
     history = set()
+    history.add(0)
 
     while True:
         pos = pos % len(values)
@@ -30,7 +33,10 @@ def twice(parameters):
 
 
 if __name__ == "__main__":
-    with open('input-day01.txt') as f:
-        params = f.readlines()
-    print("result day 01 part 1: ", sum_array(params))
-    print("result day 01 part 2: ", twice(params))
+    with open('input/day01.txt') as f:
+        params = f.read().splitlines()
+
+    start = timer()
+    print("result day 01 part 1: ", sum_array(params), " in ", get_time(start))
+    start = timer()
+    print("result day 01 part 2: ", twice(params), " in ", get_time(start))

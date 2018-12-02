@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+from timeit import default_timer as timer
+from utils.time import get_time
 
 
 def list_checksum(boxes):
@@ -41,7 +43,10 @@ def unmask(box, mask):
 
 
 if __name__ == "__main__":
-    with open('input-day02.txt') as f:
-        params = f.readlines()
-    print("result day 02 part 1: ", list_checksum(params))
-    print("result day 02 part 2: ", diff_one(params))
+    with open('input/day02.txt') as f:
+        params = f.read().splitlines()
+
+    start = timer()
+    print("result day 02 part 1: ", list_checksum(params), " in ", get_time(start))
+    start = timer()
+    print("result day 02 part 2: ", diff_one(params), " in ", get_time(start))

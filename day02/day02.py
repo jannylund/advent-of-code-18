@@ -21,7 +21,7 @@ def has_count(box, count):
 
 
 def diff_one(ids):
-    id_list = list(map(list, ids))
+    id_list = list(map(list, set(ids)))
     for box_a in id_list:
         for box_b in id_list:
             if box_a != box_b:

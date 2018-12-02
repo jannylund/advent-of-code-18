@@ -41,7 +41,7 @@ def unmask(box, mask):
 
 
 if __name__ == "__main__":
-    with open('input.txt') as f:
+    with open('input-day02.txt') as f:
         params = f.readlines()
     print("result day 02 part 1: ", list_checksum(params))
     print("result day 02 part 2: ", diff_one(params))

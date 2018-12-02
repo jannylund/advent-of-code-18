@@ -30,7 +30,7 @@ def twice(parameters):
 
 
 if __name__ == "__main__":
-    with open('input.txt') as f:
+    with open('input-day01.txt') as f:
         params = f.readlines()
     print("result day 01 part 1: ", sum_array(params))
     print("result day 01 part 2: ", twice(params))
